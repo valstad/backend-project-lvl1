@@ -12,9 +12,11 @@ const mult = (a, b) => a * b;
 const operators = [add, sub, mult];
 const operatorsStr = ['+', '-', '*'];
 
-const initMove = (maxNum) => {
-  const a = getRandomInt(maxNum);
-  const b = getRandomInt(maxNum);
+const maxNumber = 10;
+
+const initMove = () => {
+  const a = getRandomInt(maxNumber);
+  const b = getRandomInt(maxNumber);
   const randomOperator = getRandomInt(operatorsQuantity);
   return [
     getInput(`Question: ${a} ${operatorsStr[randomOperator]} ${b}\nYour answer: `),
@@ -22,4 +24,4 @@ const initMove = (maxNum) => {
   ];
 };
 
-export default (n) => initMove(n);
+export default () => initMove();

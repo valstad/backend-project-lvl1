@@ -12,3 +12,6 @@ https://asciinema.org/a/YhtPftr8iVwtc1phapRoIcyWL
 
 ### Brain-calc game example
 https://asciinema.org/a/4tbB4YkB143DsvaXERfh9T34Z
+
+### Brain-gcd game example
+https://asciinema.org/a/qywxtAFoAmRlrBNApCdl3t0WK
