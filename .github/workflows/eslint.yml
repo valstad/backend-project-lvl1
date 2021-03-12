@@ -4,9 +4,11 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v2
       - name: Install Dependencies
         run: npm install
-      - run: make lint
+      - name: Run eslint
+        run: make lint
       
        
