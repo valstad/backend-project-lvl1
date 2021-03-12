@@ -5,5 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
       - run: make lint
+      
        
