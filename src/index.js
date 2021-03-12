@@ -2,17 +2,20 @@ import getInput from './cli.js';
 import brainEvenMove from './games/brain-even-game.js';
 import brainCalcMove from './games/brain-calc-game.js';
 import brainGcdMove from './games/brain-gcd-game.js';
+import brainProgressionMove from './games/brain-progression-game.js';
 
 const gamesMap = {
   brainEven: brainEvenMove,
   brainCalc: brainCalcMove,
   brainGcd: brainGcdMove,
+  brainProgression: brainProgressionMove,
 };
 
 const rulesMap = {
   brainEven: 'Answer "yes" if the number is even, otherwise answer "no".',
   brainCalc: 'What is the result of the expression?',
   brainGcd: 'Find the greatest common divisor of given numbers.',
+  brainProgression: 'What number is missing in the progression?',
 };
 
 const startGame = (gameType) => {
