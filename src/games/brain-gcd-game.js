@@ -11,10 +11,9 @@ const getRightAnswer = (a, b) => gcd(a, b).toString();
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
-const maxNumberA = 10;
-const maxNumberB = 100;
-
 const initMove = () => {
+  const maxNumberA = 10;
+  const maxNumberB = 100;
   const a = getRandomInt(maxNumberA);
   const b = getRandomInt(maxNumberB);
   return [

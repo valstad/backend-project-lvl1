@@ -12,9 +12,8 @@ const mult = (a, b) => a * b;
 const operators = [add, sub, mult];
 const operatorsStr = ['+', '-', '*'];
 
-const maxNumber = 10;
-
 const initMove = () => {
+  const maxNumber = 10;
   const a = getRandomInt(maxNumber);
   const b = getRandomInt(maxNumber);
   const randomOperator = getRandomInt(operatorsQuantity);

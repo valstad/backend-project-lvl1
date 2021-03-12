@@ -3,12 +3,14 @@ import brainEvenMove from './games/brain-even-game.js';
 import brainCalcMove from './games/brain-calc-game.js';
 import brainGcdMove from './games/brain-gcd-game.js';
 import brainProgressionMove from './games/brain-progression-game.js';
+import brainPrimeMove from './games/brain-prime-game.js';
 
 const gamesMap = {
   brainEven: brainEvenMove,
   brainCalc: brainCalcMove,
   brainGcd: brainGcdMove,
   brainProgression: brainProgressionMove,
+  brainPrime: brainPrimeMove,
 };
 
 const rulesMap = {
@@ -16,6 +18,7 @@ const rulesMap = {
   brainCalc: 'What is the result of the expression?',
   brainGcd: 'Find the greatest common divisor of given numbers.',
   brainProgression: 'What number is missing in the progression?',
+  brainPrime: 'Answer "yes" if given number is prime. Otherwise answer "no".',
 };
 
 const startGame = (gameType) => {
