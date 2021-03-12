@@ -29,9 +29,10 @@ const startGame = (gameType) => {
 
   let points = 0;
   const maxPoints = 3;
+  const move = gamesMap[gameType];
 
   while (points < maxPoints) {
-    const [answer, rightAnswer] = gamesMap[gameType]();
+    const [answer, rightAnswer] = move();
     if (answer !== rightAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       return;
