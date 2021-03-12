@@ -6,3 +6,9 @@
 
 ### Codeclimate Maintainability Badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
+### Brain-even game example
+https://asciinema.org/a/YhtPftr8iVwtc1phapRoIcyWL
+
+### Brain-calc game example
+https://asciinema.org/a/4tbB4YkB143DsvaXERfh9T34Z

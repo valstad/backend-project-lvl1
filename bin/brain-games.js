@@ -2,4 +2,7 @@
 import sayName from '../src/cli.js';
 
 console.log('Welcome to the Brain Games!');
-sayName();
+
+const userName = sayName('May I have your name? ');
+
+console.log(`Hello, ${userName}!`);
