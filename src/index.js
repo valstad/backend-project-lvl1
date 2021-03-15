@@ -1,40 +1,42 @@
 import getInput from './cli.js';
-import brainEvenMove from './games/brain-even-game.js';
-import brainCalcMove from './games/brain-calc-game.js';
-import brainGcdMove from './games/brain-gcd-game.js';
-import brainProgressionMove from './games/brain-progression-game.js';
-import brainPrimeMove from './games/brain-prime-game.js';
+import brainEven from './games/brain-even-game.js';
+import brainCalc from './games/brain-calc-game.js';
+import brainGcd from './games/brain-gcd-game.js';
+import brainProgression from './games/brain-progression-game.js';
+import brainPrime from './games/brain-prime-game.js';
 
-const gamesMap = {
-  brainEven: brainEvenMove,
-  brainCalc: brainCalcMove,
-  brainGcd: brainGcdMove,
-  brainProgression: brainProgressionMove,
-  brainPrime: brainPrimeMove,
+const gameTypes = {
+  'brain-even': brainEven,
+  'brain-calc': brainCalc,
+  'brain-gcd': brainGcd,
+  'brain-progression': brainProgression,
+  'brain-prime': brainPrime,
 };
 
-const rulesMap = {
-  brainEven: 'Answer "yes" if the number is even, otherwise answer "no".',
-  brainCalc: 'What is the result of the expression?',
-  brainGcd: 'Find the greatest common divisor of given numbers.',
-  brainProgression: 'What number is missing in the progression?',
-  brainPrime: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+const rulesText = {
+  'brain-even': 'Answer "yes" if the number is even, otherwise answer "no".',
+  'brain-calc': 'What is the result of the expression?',
+  'brain-gcd': 'Find the greatest common divisor of given numbers.',
+  'brain-progression': 'What number is missing in the progression?',
+  'brain-prime': 'Answer "yes" if given number is prime. Otherwise answer "no".',
 };
 
-const startGame = (gameType) => {
+export default () => {
+  const gameType = process.argv[1].split('/').reverse()[0];
   console.log('Welcome to the Brain Games!');
   const userName = getInput('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log(rulesMap[gameType]);
+  console.log(rulesText[gameType]);
 
   let points = 0;
   const maxPoints = 3;
-  const move = gamesMap[gameType];
+  const generateMove = gameTypes[gameType];
 
   while (points < maxPoints) {
-    const [answer, rightAnswer] = move();
-    if (answer !== rightAnswer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
+    const [question, rightAnswer] = generateMove();
+    const userAnswer = getInput(question);
+    if (userAnswer !== rightAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       return;
     }
     points += 1;
@@ -42,5 +44,3 @@ const startGame = (gameType) => {
   }
   console.log(`Congratulations, ${userName}!`);
 };
-
-export default (g) => startGame(g);

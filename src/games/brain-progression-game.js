@@ -1,30 +1,24 @@
-import getInput from '../cli.js';
+import { getRandomInt } from '../util.js';
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-const initMove = () => {
-  const maxNumber = 10;
-  const minFirst = 2;
-  const minStep = 3;
-  const minHidden = 0;
+export default () => {
+  const maxNumbersValue = 10;
+  const minFirstNumber = 2;
+  const minInterval = 3;
   const seqLen = 10;
-  const first = getRandomInt(minFirst, maxNumber);
-  const step = getRandomInt(minStep, maxNumber);
+  const maxIndexofHiddenNum = seqLen;
+  const minIndexofHiddenNum = 0;
+  const first = getRandomInt(minFirstNumber, maxNumbersValue);
+  const step = getRandomInt(minInterval, maxNumbersValue);
   const seq = [];
 
   for (let i = first; i < first + step * seqLen; i += step) {
     seq.push(i);
   }
-
-  const hiddenNumberIndex = getRandomInt(minHidden, seqLen);
-
+  const hiddenNumberIndex = getRandomInt(minIndexofHiddenNum, maxIndexofHiddenNum);
   const answer = seq[hiddenNumberIndex].toString();
   seq[hiddenNumberIndex] = '..';
-  const seqString = seq.join(' ');
   return [
-    getInput(`Question: ${seqString}\nYour answer: `),
+    `Question: ${seq.join(' ')}\nYour answer: `,
     answer,
   ];
 };
-
-export default () => initMove();

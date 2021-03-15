@@ -1,26 +1,23 @@
-import getInput from '../cli.js';
+import { getRandomInt } from '../util.js';
 
 const getRightAnswer = (a, b, op) => op(a, b).toString();
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+const getRandomIntFromZero = (number) => getRandomInt(0, number);
 
-const operatorsQuantity = 3;
-const add = (a, b) => a + b;
-const sub = (a, b) => a - b;
-const mult = (a, b) => a * b;
-
-const operators = [add, sub, mult];
-const operatorsStr = ['+', '-', '*'];
-
-const initMove = () => {
-  const maxNumber = 10;
-  const a = getRandomInt(maxNumber);
-  const b = getRandomInt(maxNumber);
-  const randomOperator = getRandomInt(operatorsQuantity);
+export default () => {
+  const operators = [
+    (a, b) => a + b,
+    (a, b) => a - b,
+    (a, b) => a * b,
+  ];
+  const operatorsSymbol = ['+', '-', '*'];
+  const operatorsQuantity = operators.length;
+  const maxNumbersValue = 10;
+  const a = getRandomIntFromZero(maxNumbersValue);
+  const b = getRandomIntFromZero(maxNumbersValue);
+  const randomOperator = getRandomIntFromZero(operatorsQuantity);
   return [
-    getInput(`Question: ${a} ${operatorsStr[randomOperator]} ${b}\nYour answer: `),
+    `Question: ${a} ${operatorsSymbol[randomOperator]} ${b}\nYour answer: `,
     getRightAnswer(a, b, operators[randomOperator]),
   ];
 };
-
-export default () => initMove();

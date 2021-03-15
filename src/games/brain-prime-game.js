@@ -1,4 +1,4 @@
-import getInput from '../cli.js';
+import { getRandomInt } from '../util.js';
 
 const isPrime = (num) => {
   for (let i = 2; i < num; i += 1) {
@@ -9,16 +9,12 @@ const isPrime = (num) => {
 
 const getRightAnswer = (n) => isPrime(n);
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-const initMove = () => {
-  const maxNumber = 100;
-  const minNumber = 2;
-  const n = getRandomInt(minNumber, maxNumber);
+export default () => {
+  const maxNumbersValue = 100;
+  const minNumbersValue = 2;
+  const n = getRandomInt(minNumbersValue, maxNumbersValue);
   return [
-    getInput(`Question: ${n}\nYour answer: `),
+    `Question: ${n}\nYour answer: `,
     getRightAnswer(n),
   ];
 };
-
-export default () => initMove();

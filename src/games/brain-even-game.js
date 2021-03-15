@@ -1,16 +1,13 @@
-import getInput from '../cli.js';
+import { getRandomInt } from '../util.js';
 
 const getRightAnswer = (n) => (n % 2 === 0 ? 'yes' : 'no');
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const initMove = () => {
-  const maxNumber = 10;
-  const n = getRandomInt(maxNumber);
+export default () => {
+  const minNumbersValue = 1;
+  const maxNumbersValue = 19;
+  const n = getRandomInt(minNumbersValue, maxNumbersValue);
   return [
-    getInput(`Question: ${n}\nYour answer: `),
+    `Question: ${n}\nYour answer: `,
     getRightAnswer(n),
   ];
 };
-
-export default () => initMove();

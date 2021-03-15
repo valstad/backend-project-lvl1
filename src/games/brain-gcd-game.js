@@ -1,4 +1,4 @@
-import getInput from '../cli.js';
+import { getRandomInt } from '../util.js';
 
 const gcd = (a, b) => {
   if (!b) {
@@ -9,17 +9,15 @@ const gcd = (a, b) => {
 
 const getRightAnswer = (a, b) => gcd(a, b).toString();
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const initMove = () => {
+export default () => {
+  const minNumberA = 3;
   const maxNumberA = 10;
+  const minNumberB = 10;
   const maxNumberB = 100;
-  const a = getRandomInt(maxNumberA);
-  const b = getRandomInt(maxNumberB);
+  const a = getRandomInt(minNumberA, maxNumberA);
+  const b = getRandomInt(minNumberB, maxNumberB);
   return [
-    getInput(`Question: ${a} ${b}\nYour answer: `),
+    `Question: ${a} ${b}\nYour answer: `,
     getRightAnswer(a, b),
   ];
 };
-
-export default () => initMove();
